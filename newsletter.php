@@ -31,7 +31,7 @@ date_default_timezone_set('Europe/Paris');
 	if (count($email) == 1)
 	{
 		$mail->AddAddress($email);
-		$mail->addAddress('othmen.braham@virtuor.fr', 'VirtuOR Newsletter');
+		$mail->addAddress('example@xxx.com', 'name_mail');
 		$mail->IsHTML(true);	
 			//Set the subject line
 	 	$mail->Subject = 'VirtuOR Newsletter Registration';
@@ -41,25 +41,25 @@ date_default_timezone_set('Europe/Paris');
 		$corpsHtml = file_get_contents('mailNewsletter.html');
 		str_replace('XXXX',$email,$corpsHtml);
 		$corps = '<html lang="en"><body>';
-			$corps .= '<a href="http://www.virtuor.fr"><img src="images/LogoVirtuOR.png" style="width:150px; height=100px;"></img></a><br/>';
+			$corps .= '<a href="#"><img src="images/" style="width:150px; height=100px;"></img></a><br/>';
 			$corps .= '<p>-----------------</p>';
 			$corps .= '<p>This is an automated email</p>';
 			$corps .= '<p>-----------------</p>';
 			$corps .= '<p>Dear member,</p>';	
-			$corps .= $email.'<p> has requested for VirtuOR Newsletter Registration </p>';
+			$corps .= $email.'<p> has requested for XXXXXX Newsletter Registration </p>';
 			$corps .= '<p>Thank you!</p>';	
 			$corps .= '<p>Best regards,</p>';		
-			$corps .= '<p>The VirtuOR Team</p>';
-			$corps .= '<a href="http://www.virtuor.fr">http://www.virtuor.fr</a>';		
+			$corps .= '<p>The xxxx Team</p>';
+			$corps .= '<a href="#">your_website</a>';		
 			$corps .= '<br/>';
 	
 			// Ajout du corps du message
 			//$mail->Body = stripslashes($corps);
 		
 			//Replace the plain text body with one created manually
-		$mail->AltBody = $email.' Your have requeted  a registration in  VirtuOR[Newsletter]';
+		$mail->AltBody = $email.' Your have requeted  a registration in  XXXXXXX[Newsletter]';
 			//Attach an image file
-		$mail->addAttachment('images/LogoVirtuOR.png');
+		$mail->addAttachment('images/');
 
 			//send the message, check for errors
 		if (!$mail->send()) 
@@ -70,35 +70,35 @@ date_default_timezone_set('Europe/Paris');
 	else{
 		for($i=0;$i<count($email);$i++){
 			$mail->AddAddress($email[$i]);
-			$mail->addAddress('othmen.braham@virtuor.fr', 'VirtuOR Newsletter');
+			$mail->addAddress('example@xxxx.com', 'xxxxxxx');
 			$mail->IsHTML(true);	
 			//Set the subject line
-	 		$mail->Subject = 'VirtuOR Newsletter Registration';
+	 		$mail->Subject = 'xxxxxxxx Newsletter Registration';
 			//Read an HTML message body from an external file, convert referenced images to embedded,
 			//convert HTML into a basic plain-text alternative body
 
 			$corpsHtml = file_get_contents('mailNewsletter.html');
 			str_replace('XXXX',$email[$i],$corpsHtml);
 			$corps = '<html lang="en"><body>';
-			$corps .= '<a href="http://www.virtuor.fr"><img src="images/LogoVirtuOR.png" style="width:150px; height=100px;"></img></a><br/>';
+			$corps .= '<a href="#"><img src="images/" style="width:150px; height=100px;"></img></a><br/>';
 			$corps .= '<p>-----------------</p>';
 			$corps .= '<p>This is an automated email</p>';
 			$corps .= '<p>-----------------</p>';
 			$corps .= '<p>Dear member,</p>';	
-			$corps .= $email[$i].'<p> has requested for VirtuOR Newsletter Registration </p>';
+			$corps .= $email[$i].'<p> has requested for xxxxx Newsletter Registration </p>';
 			$corps .= '<p>Thank you!</p>';	
 			$corps .= '<p>Best regards,</p>';		
-			$corps .= '<p>The VirtuOR Team</p>';
-			$corps .= '<a href="http://www.virtuor.fr">http://www.virtuor.fr</a>';		
+			$corps .= '<p>The xxxxx Team</p>';
+			$corps .= '<a href="#">your website_url</a>';		
 			$corps .= '<br/>';
 
 			// Ajout du corps du message
 			//$mail->Body = stripslashes($corps);
 		
 			//Replace the plain text body with one created manually
-			$mail->AltBody = $email[$i].' Your have requeted  a registration in  VirtuOR[Newsletter]';
+			$mail->AltBody = $email[$i].' Your have requeted  a registration in  xxxxxx[Newsletter]';
 			//Attach an image file
-			$mail->addAttachment('images/LogoVirtuOR.png');
+			$mail->addAttachment('images/');
 
 			//send the message, check for errors
 			if (!$mail->send()) {
